@@ -1,0 +1,131 @@
+*{
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+}
+.container {
+  max-width: 650px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 12px;
+}
+.hero{
+  text-align: center;
+}
+.social-link{
+  padding: 5px;
+  background: rgb(0,172,238);
+  margin-right: 8px;
+  color: white;
+}
+.title{
+  color: white;
+  font-size: 48px;
+}
+ul{
+  margin-top: 72px;
+  list-style: none;
+}
+li a{
+  color: white;
+  padding: 4px 8px;
+  float: left;
+  margin-right: 16px;
+}
+li a:hover{
+  border-radius: 0.5em;
+  background: rgb(248,140,0);
+  transition: .5s;
+}
+.blog{
+  padding: 5px 10px;
+  box-shadow: 1px 1px 3px #000;
+}
+.blog-title{
+  text-align: center;
+}
+.blog-photo{
+  margin-top: 5px;
+}
+.blog-photo img{
+  max-width: 630px;
+  width: 100%;
+  max-height: 300px;
+}
+.blog-photo2 img{
+  max-width: 630px;
+  width: 100%;
+}
+.blog-date{
+  text-align: right;
+  color: grey;
+  margin: 12px 0 12px 0;
+}
+.comment-respond{
+  max-width: 650px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 12px;
+}
+.comment-form{
+  padding: 10px;
+}
+.comment-notes{
+  margin-top: 15px;
+}
+#comment{
+  width: 100%;
+  padding: 5px;
+}
+.comment-form-author , .comment-form-email{
+  margin-top: 5px;
+}
+#author , #email{
+  height: 25px;
+  padding: 3px;
+}
+.form-submit{
+  margin-top: 5px;
+}
+#submit{
+  color: white;
+  background-color: #0cb73d;
+  padding: 5px 5px;
+}
+a{
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+.contain{
+  max-width: 650px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 12px;
+}
+.yorum{
+  padding: 5px 10px;
+  box-shadow: 1px 1px 3px #000;
+}
+.yorum-isim{
+  text-align: left;
+}
+.yorum-date{
+  text-align: right;
+  color: grey;
+  margin: 12px 0 12px 0;
+}
+.yorum-text{
+  font-size: 10pt;
+}
+
+footer{
+  text-align: center;
+  background-color: black;
+  min-height: 96px;
+  line-height: 96px;
+  height: auto;
+}
+footer p a{
+  color: white;
+  text-decoration: none;
+}
