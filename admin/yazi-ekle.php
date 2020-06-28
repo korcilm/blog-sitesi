@@ -4,7 +4,6 @@
 <!-- side bar -->
 <?php include 'sidebar.php'; ?>
 
-
 <div class="container">
 	<div class="right">
 		<div class="panel-heading">
@@ -21,12 +20,6 @@
 						</div>
 					</div>
 
-					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-2 control-label">Tarih</label>
-						<div class="column">
-							<input type="text" name="yazi_tarih" class="form-control" placeholder="yyyy.aa.gg" required>
-						</div>
-					</div>
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-2 control-label">Yazı</label>
 						<div class="column">
