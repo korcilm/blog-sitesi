@@ -1,10 +1,5 @@
-
 <?php include"header.php" ?>
-
-
-
 <!-- alert uyarı bolmesi -->
-
 <?php 
 if (@$_GET["yorum-ekle"]=="bos") {
 	?>	
@@ -27,9 +22,7 @@ if (@$_GET["yorum-ekle"]=="bos") {
 }
 ?>
 <?php 
-
 $yazi_id2=$yazi_id = @$_GET["id"];
-
 $query=$db->prepare("SELECT * FROM yazilarim WHERE id=?");
 $query->execute(array($yazi_id));
 $cek=$query->fetch(PDO::FETCH_ASSOC);
@@ -37,7 +30,7 @@ $cek=$query->fetch(PDO::FETCH_ASSOC);
 
 <div class="container" style="box-shadow: 1px 2px 3px;">
 	<div class="blog">
-		<h2 class="blog-title"><?php echo $cek["yazi_adi"]; ?>-</h2>
+		<h2 class="blog-title"><?php echo $cek["yazi_adi"]; ?></h2>
 		<div class="blog-photo2"><img src="<?php echo $cek["yazi_link"]; ?>"></div>
 		<div class="blog-text">
 			<?php echo $cek["yazi_aciklama"]; ?>
@@ -72,10 +65,8 @@ $cek=$query->fetch(PDO::FETCH_ASSOC);
 	<hr>
 </div>
 
-
-
 <?php 
-$yorumlar=$db->prepare("SELECT * FROM yorumlar WHERE yazi_id=$yazi_id2 ORDER BY yorum_id DESC ");
+$yorumlar=$db->prepare("SELECT * FROM yorumlar WHERE yazi_id=$yazi_id2 and onay=1 ORDER BY yorum_id DESC ");
 $yorumlar->execute();
 $yorumcek=$yorumlar->fetchALL(PDO::FETCH_ASSOC);
 
@@ -94,8 +85,6 @@ foreach ($yorumcek as $row ) {
 	<?php 
 }
 ?>
-
-
 <?php include"footer.php" ?>
 </body>
 </html>
