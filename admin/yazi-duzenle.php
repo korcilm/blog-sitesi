@@ -4,9 +4,9 @@
 <!-- side bar -->
 <?php include 'sidebar.php'; ?>
 <?php 
-$yazi_id =$_GET["yazi_id"];
-$query=$db->prepare("SELECT * FROM yazilarim WHERE yazi_id=?");
-$query->execute(array($yazi_id));
+$id =$_GET["id"];
+$query=$db->prepare("SELECT * FROM yazilarim WHERE id=?");
+$query->execute(array($id));
 $cek=$query->fetch(PDO::FETCH_ASSOC);
 ?>
 
@@ -17,7 +17,7 @@ $cek=$query->fetch(PDO::FETCH_ASSOC);
 		</div>
 		<div class="panel-info">
 			<div class="heading">
-				<form action="islem.php?yazi_id=<?php echo $cek["yazi_id"]; ?>" method="POST" class="form-horizontal" role="form">
+				<form action="islem.php?id=<?php echo $cek["id"]; ?>" method="POST" class="form-horizontal" role="form">
 
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-2 control-label">Başlık</label>
@@ -47,7 +47,6 @@ $cek=$query->fetch(PDO::FETCH_ASSOC);
 					<div class="button" >
 						<button class="update" name="yazi-duzenle">Güncelle</button>						
 					</div>
-
 				</form>
 			</div>
 		</div>
