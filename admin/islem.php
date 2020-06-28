@@ -34,7 +34,6 @@ if (isset($_POST["loggin"])) {
 if (isset($_POST["kullanici-adi"])) {
 	
 	$admin_id   =$_GET["admin_id"];
-
 	$admin_kadi =$_POST["admin_kadi"];
 
 	if (!$admin_kadi) {
@@ -52,18 +51,14 @@ if (isset($_POST["kullanici-adi"])) {
 			header("Location: profil.php?admin-guncelle=no");
 		}
 	}
-
 }
 
 //profil işlemleri admin şifre değiştirme
 if (isset($_POST["sifre-degistir"])) {
 	
 	$admin_id 	=$_GET["admin_id"];
-
 	$eski_sifre =md5($_POST["eski_sifre"]);
-	$yeni_sifre =md5($_POST["yeni_sifre"]);
-
-	
+	$yeni_sifre =md5($_POST["yeni_sifre"]);	
 
 	$query=$db->prepare("SELECT *FROM admin WHERE admin_sifre=?");
 	$query->execute(array($eski_sifre));
@@ -84,10 +79,7 @@ if (isset($_POST["sifre-degistir"])) {
 		}else{
 			header("Location: profil.php?admin-guncelle=no");
 		}
-
-
-	}
-	
+	}	
 }
 
 // genel ayarlar
@@ -114,19 +106,17 @@ if (isset($_POST["genel-ayarlar"])) {
 		}
 	}
 }
-
 // yazi ekle
 if (isset($_POST["yazi-ekle"])) {
 	
 	$yazi_adi		= $_POST["yazi_adi"];
-	$yazi_tarih		= $_POST["yazi_tarih"];
 	$yazi_aciklama	= $_POST["yazi_aciklama"];
 	$yazi_link		= $_POST["yazi_link"];	
-	if (!$yazi_adi || !$yazi_link || !$yazi_tarih || !$yazi_aciklama ) {
+	if (!$yazi_adi || !$yazi_link || !$yazi_aciklama ) {
 		header("Location: yazilarim.php?yazi-ekle=bos");
 	}else{
-		$query =$db->prepare("INSERT INTO yazilarim SET yazi_adi=? , yazi_link=? , yazi_tarih=? , yazi_aciklama=?");
-		$insert =$query->execute(array($yazi_adi, $yazi_link, $yazi_tarih, $yazi_aciklama));
+		$query =$db->prepare("INSERT INTO yazilarim SET yazi_adi=? , yazi_link=? , yazi_aciklama=?");
+		$insert =$query->execute(array($yazi_adi, $yazi_link, $yazi_aciklama));
 
 		if ($insert) {
 			header("Location: yazilarim.php?yazi-ekle=yes");
@@ -184,15 +174,42 @@ if (isset($_POST["yorum-ekle"])) {
 	$yazi_id 		= $_POST["yazi_id"];
 
 	if ( !$yorum || !$yorum_adi  || !$yorum_mail || !$yazi_id ) {
-		header("Location: ..\yazi.php?yorum-ekle=bos");
+		header("Location: ..\yazi.php?id=$yazi_id");
 	}else{
 		$query =$db->prepare("INSERT INTO yorumlar  SET  yorum_adi=? , yorum_mail=? , yorum=? , yazi_id=?");
 		$insert =$query->execute(array($yorum_adi, $yorum_mail, $yorum, $yazi_id));		
 		if ($insert) {
-			header("Location: ..\yazi.php?yorum-ekle=yes");
+			header("Location: ..\yazi.php?id=$yazi_id");
 		}else{
-			header("Location: ..\yazi.php?yorum-ekle=no");
+			header("Location: ..\yazi.php?id=$yazi_id");
 		}
 	}
 }	
 
+//yorum onay
+$yorum_id=@$_GET["yorum_id"];
+$onay=@$_GET["onay"];
+if (isset($yorum_id)){
+
+	$query = $db->prepare("UPDATE yorumlar SET onay=? WHERE yorum_id=?");
+	$update = $query->execute(array($onay, $yorum_id));
+
+	if ($update) {
+		header("Location: yorum-onay.php?yazi-guncelle=yes");
+	}else{
+		header("Location: yorum-onay.php?yazi-guncelle=no");
+	}
+}
+
+//yorum sil
+$yorumsil_id=@$_GET["yorumsil_id"];
+if (isset($yorumsil_id)) {
+	$query=$db->prepare("DELETE FROM yorumlar WHERE yorum_id=?");
+	$delete=$query->execute(array($yorumsil_id));
+
+	if ($delete) {
+		header("Location: yorum-onay.php?yazi-sil=yes");
+	}else{
+		header("Location: yorum-onay.php?yazi-sil=no");
+	}
+}
