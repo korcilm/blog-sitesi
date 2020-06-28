@@ -1,10 +1,7 @@
 <!-- header --> 
 <?php include 'header.php'; ?>
-
-
 <!-- side bar -->
 <?php include 'sidebar.php'; ?>
-
 <!-- alert uyarı bolmesi -->
 <div class="alert">	
 	<?php 
@@ -58,8 +55,6 @@
 		<?php
 	}
 	?>  
-
-
 	<?php 
 	$id=1;
 
@@ -120,6 +115,5 @@
 		</div>					
 	</div>
 </div>
-
 <!-- footer -->
 <?php include 'footer.php'; ?>
