@@ -33,7 +33,7 @@
 	<div class="containerr"><hr>
 		<div class="about">
 			<h2 class="about-me">Hakkımda</h2>
-			<div class="about-photo"><img src="images\5.jpg"></div>
+			<div class="about-photo"><img src="https://i2.wp.com/www.bseducation.net/wp-content/uploads/2017/06/form.jpg?resize=780%2C400&ssl=1"></div>
 			<div class="about-text">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
