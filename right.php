@@ -1,13 +1,13 @@
   <!-- Right Column -->
   <div>
    <!-- yazilarim -->
-  <?php 
-  
-  $yazilarim=$db->prepare("SELECT * FROM yazilarim ORDER BY id DESC");   /*order by kısmı en son eklenenden başlayarak yazdırılmasını sağlıyor*/
-  $yazilarim->execute();
-  $yazicek=$yazilarim->fetchALL(PDO::FETCH_ASSOC);
+   <?php 
 
-  foreach ($yazicek as $row) {
+   $yazilarim=$db->prepare("SELECT * FROM yazilarim ORDER BY id DESC");   /*order by kısmı en son eklenenden başlayarak yazdırılmasını sağlıyor*/
+   $yazilarim->execute();
+   $yazicek=$yazilarim->fetchALL(PDO::FETCH_ASSOC);
+
+   foreach ($yazicek as $row) {
     ?>
     <div class="container">
       <div class="blog">
@@ -18,16 +18,19 @@
         <div class="blog-text">
          <?php 
          $secim= $row["yazi_aciklama"]; 
-          echo substr($secim, 0,250);
+         echo substr($secim, 0,250);
          ?>...
-        </div>
-        <div class="blog-date"><?php echo $row["yazi_tarih"]; ?></div></a>
+       </div>
+       <div class="blog-date">
+        <?php 
+        echo date($row["yazi_tarih"]) ; ?>        
       </div>
-    </div>
-    <?php
-  }
-
-  ?>
-  <!-- End Right Column -->
+    </a>
+  </div>
 </div>
+<?php
+}
 
+?>
+<!-- End Right Column -->
+</div>
