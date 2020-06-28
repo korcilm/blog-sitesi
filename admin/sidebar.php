@@ -1,4 +1,3 @@
-
 <div class="sidebar-box">
 	<div class="sidebar">
 		<ul >
@@ -6,6 +5,7 @@
 			<li class="current"><a href="index.php">Anasayfa</a></li>   
 			<li><a href="yazilarim.php">Yazılarım</a></li>  
 			<li><a href="genel-ayarlar.php">Genel Ayarlar</a></li>     
+			<li><a href="yorum-onay.php">Yorum Onay</a></li>  
 		</ul>
 	</div>	
 </div>
