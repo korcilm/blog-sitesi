@@ -1,4 +1,5 @@
 <?php include"header.php" ?>
+
 <!-- alert uyarı bolmesi -->
 <?php 
 if (@$_GET["yorum-ekle"]=="bos") {
@@ -10,7 +11,7 @@ if (@$_GET["yorum-ekle"]=="bos") {
 }elseif (@$_GET["yorum-ekle"]=="yes") {
 	?>			
 	<div class="alert-success" >
-		<span > İşleminiz başarıyla gerçekleştirildi!</span>
+		<span > Yorumunuz başarıyla alınmıştır. Admin onayından sonra yayınlanacaktır.</span>
 	</div>
 	<?php
 }elseif (@$_GET["yorum-ekle"]=="no") {
@@ -22,6 +23,7 @@ if (@$_GET["yorum-ekle"]=="bos") {
 }
 ?>
 <?php 
+
 $yazi_id2=$yazi_id = @$_GET["id"];
 $query=$db->prepare("SELECT * FROM yazilarim WHERE id=?");
 $query->execute(array($yazi_id));
@@ -60,11 +62,9 @@ $cek=$query->fetch(PDO::FETCH_ASSOC);
 		<p class="form-submit">
 			<input id="submit" name="yorum-ekle" type="submit" class="submit" value="Yorum Yap">
 		</p>
-
 	</form>
 	<hr>
 </div>
-
 <?php 
 $yorumlar=$db->prepare("SELECT * FROM yorumlar WHERE yazi_id=$yazi_id2 and onay=1 ORDER BY yorum_id DESC ");
 $yorumlar->execute();
