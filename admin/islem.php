@@ -34,6 +34,7 @@ if (isset($_POST["loggin"])) {
 if (isset($_POST["kullanici-adi"])) {
 	
 	$admin_id   =$_GET["admin_id"];
+
 	$admin_kadi =$_POST["admin_kadi"];
 
 	if (!$admin_kadi) {
@@ -51,14 +52,18 @@ if (isset($_POST["kullanici-adi"])) {
 			header("Location: profil.php?admin-guncelle=no");
 		}
 	}
+
 }
 
 //profil işlemleri admin şifre değiştirme
 if (isset($_POST["sifre-degistir"])) {
 	
 	$admin_id 	=$_GET["admin_id"];
+
 	$eski_sifre =md5($_POST["eski_sifre"]);
-	$yeni_sifre =md5($_POST["yeni_sifre"]);	
+	$yeni_sifre =md5($_POST["yeni_sifre"]);
+
+	
 
 	$query=$db->prepare("SELECT *FROM admin WHERE admin_sifre=?");
 	$query->execute(array($eski_sifre));
@@ -79,7 +84,10 @@ if (isset($_POST["sifre-degistir"])) {
 		}else{
 			header("Location: profil.php?admin-guncelle=no");
 		}
-	}	
+
+
+	}
+	
 }
 
 // genel ayarlar
@@ -106,6 +114,7 @@ if (isset($_POST["genel-ayarlar"])) {
 		}
 	}
 }
+
 // yazi ekle
 if (isset($_POST["yazi-ekle"])) {
 	
@@ -174,14 +183,14 @@ if (isset($_POST["yorum-ekle"])) {
 	$yazi_id 		= $_POST["yazi_id"];
 
 	if ( !$yorum || !$yorum_adi  || !$yorum_mail || !$yazi_id ) {
-		header("Location: ..\yazi.php?id=$yazi_id");
+		header("Location: ..\yazi.php?id=$yazi_id&&yorum-ekle=bos");
 	}else{
 		$query =$db->prepare("INSERT INTO yorumlar  SET  yorum_adi=? , yorum_mail=? , yorum=? , yazi_id=?");
 		$insert =$query->execute(array($yorum_adi, $yorum_mail, $yorum, $yazi_id));		
 		if ($insert) {
-			header("Location: ..\yazi.php?id=$yazi_id");
+			header("Location: ..\yazi.php?id=$yazi_id&&yorum-ekle=yes");
 		}else{
-			header("Location: ..\yazi.php?id=$yazi_id");
+			header("Location: ..\yazi.php?id=$yazi_id&&yorum-ekle=no");
 		}
 	}
 }	
