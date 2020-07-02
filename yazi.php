@@ -25,15 +25,16 @@ if (@$_GET["yorum-ekle"]=="bos") {
 <?php 
 
 $yazi_id2=$yazi_id = @$_GET["id"];
+
 $query=$db->prepare("SELECT * FROM yazilarim WHERE id=?");
 $query->execute(array($yazi_id));
 $cek=$query->fetch(PDO::FETCH_ASSOC);
 ?>	
 
-<div class="container" style="box-shadow: 1px 2px 3px;">
+<div class="container">
 	<div class="blog">
-		<h2 class="blog-title"><?php echo $cek["yazi_adi"]; ?></h2>
 		<div class="blog-photo2"><img src="<?php echo $cek["yazi_link"]; ?>"></div>
+		<h2 class="blog-title"><?php echo $cek["yazi_adi"]; ?></h2>
 		<div class="blog-text">
 			<?php echo $cek["yazi_aciklama"]; ?>
 		</div>
@@ -50,21 +51,24 @@ $cek=$query->fetch(PDO::FETCH_ASSOC);
 		<p class="comment-form-comment">
 			<textarea id="comment" name="yorum" cols="45" rows="8" maxlength="65525" required="required" placeholder="Yorum yapınız.."></textarea>
 		</p>
-		<p class="comment-form-author">
+		<div class="comment-form-author">
+			<label for="author">İsim </label><br>
 			<input id="author" name="yorum_adi" type="text"  size="30" maxlength="245" required='required' />
-			<label for="author">İsim </label>
-		</p>
-		<p class="comment-form-email">
-			<input id="email" name="yorum_mail" type="text"  size="30" maxlength="100" required='required' />
-			<label for="email">E-posta </label> 
+		</div>
+		<div class="comment-form-email">
+			<label for="email">E-posta </label><br>
+			<input id="email" name="yorum_mail" type="text"  size="30" maxlength="100" required='required' /> 
 			<input type="hidden" name="yazi_id" value="<?php echo $cek["id"]; ?>">
-		</p>
-		<p class="form-submit">
+		</div>
+		<div class="form-submit">
 			<input id="submit" name="yorum-ekle" type="submit" class="submit" value="Yorum Yap">
-		</p>
+		</div>
+
 	</form>
 	<hr>
 </div>
+
+
 <?php 
 $yorumlar=$db->prepare("SELECT * FROM yorumlar WHERE yazi_id=$yazi_id2 and onay=1 ORDER BY yorum_id DESC ");
 $yorumlar->execute();
@@ -73,18 +77,20 @@ $yorumcek=$yorumlar->fetchALL(PDO::FETCH_ASSOC);
 foreach ($yorumcek as $row ) {
 	?>	
 
-	<div class="contain" style="box-shadow: 1px 2px 3px;">
+	<div class="contain">
 		<div class="yorum">
 			<h4 class="yorum-isim"><?php echo $row["yorum_adi"]; ?></h4>
 			<div class="yorum-text">
 				<?php echo $row["yorum"]; ?>
 			</div>
-			<div class="yorum-date"><?php echo $row["yorum_tarih"]; ?></div>
+			<div class="yorum-date"><a href="#" class="yanit">Yanıtla</a> <?php echo $row["yorum_tarih"]; ?></div>
 		</div>
 	</div>
 	<?php 
 }
 ?>
+
 <?php include"footer.php" ?>
+
 </body>
 </html>
