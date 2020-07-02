@@ -1,6 +1,6 @@
 *{
   margin: 0;
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Roboto', sans-serif;
 }
 .container {
   max-width: 650px;
@@ -10,6 +10,10 @@
 }
 .hero{
   text-align: center;
+}
+.hero-social-links{
+  margin-top: 12px;
+  margin-bottom: 16px;
 }
 .social-link{
   padding: 5px;
@@ -22,7 +26,7 @@
   font-size: 48px;
 }
 ul{
-  margin-top: 72px;
+  margin-top: 40px;
   list-style: none;
 }
 li a{
@@ -32,16 +36,13 @@ li a{
   margin-right: 16px;
 }
 li a:hover{
-  border-radius: 0.5em;
+  border-radius: 0.3em;
   background: rgb(248,140,0);
-  transition: .5s;
+  transition: .4s;
 }
 .blog{
   padding: 5px 10px;
-  box-shadow: 1px 1px 3px #000;
-}
-.blog-title{
-  text-align: center;
+  box-shadow : 0 0 0 1px rgba(0,0,0,.06);
 }
 .blog-photo{
   margin-top: 5px;
@@ -49,16 +50,27 @@ li a:hover{
 .blog-photo img{
   max-width: 630px;
   width: 100%;
-  max-height: 300px;
+  max-height: 275px;
 }
 .blog-photo2 img{
   max-width: 630px;
   width: 100%;
 }
+.blog-text{
+  text-align: justify;
+}
 .blog-date{
   text-align: right;
   color: grey;
   margin: 12px 0 12px 0;
+}
+.read{
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #428bca;
+  border-color: #428bca;
+  color: white;
 }
 .comment-respond{
   max-width: 650px;
@@ -77,19 +89,26 @@ li a:hover{
   padding: 5px;
 }
 .comment-form-author , .comment-form-email{
+  display: inline-block;
   margin-top: 5px;
+}
+.comment-form-email{
+  margin-left: 15px;
 }
 #author , #email{
   height: 25px;
   padding: 3px;
 }
 .form-submit{
+  display: inline-block;
   margin-top: 5px;
+  margin-left: 15px;
 }
 #submit{
   color: white;
   background-color: #0cb73d;
-  padding: 5px 5px;
+  padding: 6px;
+  border-radius: 5px;
 }
 a{
   color: black;
@@ -103,10 +122,11 @@ a{
 }
 .yorum{
   padding: 5px 10px;
-  box-shadow: 1px 1px 3px #000;
+  box-shadow : 0 0 0 1px rgba(0,0,0,.06);
 }
 .yorum-isim{
   text-align: left;
+  font-size: 12pt;
 }
 .yorum-date{
   text-align: right;
@@ -115,6 +135,14 @@ a{
 }
 .yorum-text{
   font-size: 10pt;
+  margin-top: 3px;
+  text-align: justify;
+}
+.yanit{
+  margin-top: 3px;
+  float: left;
+  font-size: 8pt;
+  color: #007bff;
 }
 
 footer{
