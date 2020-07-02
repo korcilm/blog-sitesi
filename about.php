@@ -11,7 +11,7 @@
 			margin-bottom: 48px;
 		}
 		.about-me{
-			font-family: "Times New Roman", Times, serif;
+			font-family: 'Roboto', sans-serif;
 			text-align: center;
 			font-size: 48px;
 		}
@@ -23,8 +23,9 @@
 			width: 100%;
 		}
 		.about-text{
-			font-family: Arial, Helvetica, sans-serif;
+			font-family: 'Roboto', sans-serif;
 			padding: 10px 15px;
+			text-align: justify;
 		}
 	</style>
 </head>
