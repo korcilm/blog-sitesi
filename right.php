@@ -11,26 +11,23 @@
     ?>
     <div class="container">
       <div class="blog">
-        <h2 class="blog-title">
-          <a class="blog-title-link" href="yazi.php?id=<?php echo $row["id"]; ?>"><?php echo $row["yazi_adi"]; ?>
-        </h2>
-        <div class="blog-photo"><img src="<?php echo $row["yazi_link"]; ?>"></div>
+        <div class="blog-photo">
+           <img src="<?php echo $row["yazi_link"]; ?>">
+        </div>
+        <h2 class="blog-title"> <?php echo $row["yazi_adi"]; ?> </h2>
         <div class="blog-text">
          <?php 
          $secim= $row["yazi_aciklama"]; 
-         echo substr($secim, 0,250);
+         echo substr($secim, 0,280);  
          ?>...
        </div>
-       <div class="blog-date">
-        <?php 
-        echo date($row["yazi_tarih"]) ; ?>        
-      </div>
-    </a>
-  </div>
-</div>
-<?php
-}
+       <a class="blog-title-link" href="yazi.php?id=<?php echo $row["id"]; ?>"> <button class="read">Read More</button> </a>
+       <div class="blog-date"> <?php echo date($row["yazi_tarih"]) ; ?> </div> 
+     </div>
+   </div>
+   <?php
+ }
+ ?>
+ <!-- End Right Column -->
 
-?>
-<!-- End Right Column -->
 </div>
