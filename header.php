@@ -13,6 +13,7 @@ $ayarcek=$ayarlar->fetch(PDO::FETCH_ASSOC);
 <meta name="description" content="<?php echo $ayarcek["site_desc"]; ?>">
 <meta name="keyword" content="<?php echo $ayarcek["site_keyw"]; ?>">
 <link rel="stylesheet" type="text/css" href="css\index.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,5 +33,3 @@ $ayarcek=$ayarlar->fetch(PDO::FETCH_ASSOC);
 		</div>
 	</header> 
 	<br>
-
-
