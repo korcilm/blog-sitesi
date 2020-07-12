@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 17 Haz 2020, 12:29:45
+-- Üretim Zamanı: 12 Tem 2020, 16:24:24
 -- Sunucu sürümü: 10.4.11-MariaDB
 -- PHP Sürümü: 7.4.1
 
