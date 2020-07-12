@@ -1,54 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Muhammet Korçil</title>
-	<style type="text/css">
-		.containerr{
-			max-width: 750px;
-			width: 100%;
-			margin: 0 auto;
-			margin-top: 48px;
-			margin-bottom: 48px;
-		}
-		.about-me{
-			font-family: 'Roboto', sans-serif;
-			text-align: center;
-			font-size: 48px;
-		}
-		.about-photo {
-			padding: 10px 15px;
-		}
-		.about-photo img{
-			max-width: 720px;
-			width: 100%;
-		}
-		.about-text{
-			font-family: 'Roboto', sans-serif;
-			padding: 10px 15px;
-			text-align: justify;
-		}
-	</style>
-</head>
-<body>
-	<?php include"header.php" ?>
-	<div class="containerr"><hr>
-		<div class="about">
-			<h2 class="about-me">Hakkımda</h2>
-			<div class="about-photo"><img src="https://i2.wp.com/www.bseducation.net/wp-content/uploads/2017/06/form.jpg?resize=780%2C400&ssl=1"></div>
-			<div class="about-text">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</div>
+<!-- About Me (Left Sidebar) Start -->
+<div class="col-md-3">
+    <div class="fixed">
 
-		</div><hr>
-	</div>
-<?php include"footer.php" ?>
+        <div class="my-pic">
+
+            <img src="images/fotom.jpg" style="width: 280px; " alt="">
+
+
+            <a href="javascript:void(0)" class="collapsed" data-target="#menu" data-toggle="collapse"><i class="fas fa-bars"></i></a>
+            <div id="menu" class="collapse">
+                <ul class="menu-link">
+                    <li><a href="about.html">Hakkımda</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="my-detail">
+
+            <div class="white-spacing">
+                <h1>Muhammet Korçil</h1>
+                <span> Karabük Üniversitesi </span><br>
+                <span>Bilgisayar Mühendisliği</span>
+            </div>
+
+            <ul class="social-icon">
+                <li><a href="#" target="_blank" class="facebook"><i class="fa fa-envelope"></i></a></li>
+                <li><a href="#" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#" target="_blank" class="github"><i class="fa fa-github"></i></a></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
