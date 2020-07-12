@@ -1,0 +1,11 @@
+ .stack {
+     color: darkgrey; 
+ }
+ .stack:hover {
+     color: black;
+ }
+.photo{
+    width: 64px; 
+    height: 64px;
+    margin: 5px;
+}
