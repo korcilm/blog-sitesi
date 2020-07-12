@@ -5,8 +5,6 @@
         <div class="my-pic">
 
             <img src="images/fotom.jpg" style="width: 280px; " alt="">
-
-
             <a href="javascript:void(0)" class="collapsed" data-target="#menu" data-toggle="collapse"><i class="fas fa-bars"></i></a>
             <div id="menu" class="collapse">
                 <ul class="menu-link">
@@ -15,7 +13,6 @@
                 </ul>
             </div>
         </div>
-
 
         <div class="my-detail">
 
