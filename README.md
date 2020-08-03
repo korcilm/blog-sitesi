@@ -1,5 +1,5 @@
 # blog-sitesi
 Php ile kişisel blog sitesi 
 
-Sitenin Linki Aşağıdadır
+Sitenin Linki :
 http://korcilblog.epizy.com/
