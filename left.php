@@ -1,38 +1,37 @@
-<div class="col-md-3 mt-5" >
-
-  <div class="about-fixed">
-
-    <div class="my-pic">
-
-      <img src="images/fotom.jpg" style="width: 280px; " alt="">
-
-      <a href="javascript:void(0)" class="collapsed" data-target="#menu" data-toggle="collapse"><i class="icon-menu menu"></i></a>
-      <div id="menu" class="collapse">
-        <ul class="menu-link">
-          <li><a href="about.html">About</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
+<div class="col-md-3 mt-5">
+  <div class="card mx-4 ">
+    <div class="card-header">
+      <img src="<?=SITE?>images/fotom1.jpg" style="width: 100%; height: 200px;" alt="">    
     </div>
+    <div class="card-body">
 
+      <?php 
+      $hakkimda=$VT->VeriGetir("hakkimda","WHERE ID=?",array(1),"");
+      if ($hakkimda!=false) {
+        $adsoyad=$hakkimda[0]["adsoyad"];
+        $bilgi=$hakkimda[0]["bilgi"];
+      }
+      ?> 
+      <h1><?=$adsoyad?></h1>
 
-    <div class="my-detail">
+      <?php 
+      $dizi= explode("-", $bilgi ,2);      
+      ?>
+      <p class="text-center"> <?=$dizi[0]?></p>
 
-      <div class="white-spacing">
-        <h1>Muhammet Korçil</h1>
-        <span> Karabük Üniversitesi </span><br>
-        <span>Bilgisayar Mühendisliği</span>
-      </div>
+      <p class="text-center"><?=$dizi[1]?></p>
 
+      <?php 
+      $ayarlar=$VT->VeriGetir("ayarlar","WHERE ID=?", array(1),"ORDER BY ID ASC",1);
+      ?>
       <ul class="social-icon">
-        <li><a href="#" target="_blank" class="facebook"><i class="fa fa-envelope"></i></a></li>
-        <li><a href="#" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="#" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-        <li><a href="#" target="_blank" class="github"><i class="fa fa-github"></i></a></li>
+        <li><a href="<?=$ayarlar[0]["mail"]?>" target="_blank" class="facebook"><i class="fas fa-envelope-square fa-lg"></i></a></li>
+        <li><a href="<?=$ayarlar[0]["twitter"]?>" target="_blank" class="twitter"><i class="fab fa-twitter-square fa-lg"></i></a></li>
+        <li><a href="<?=$ayarlar[0]["linkedin"]?>" target="_blank" class="linkedin"><i class="fab fa-linkedin fa-lg"></i></a></li>
+        <li><a href="<?=$ayarlar[0]["github"]?>" target="_blank" class="github"><i class="fab fa-github fa-lg"></i></a></li>
+        <li><a href="<?=$ayarlar[0]["medium"]?>" target="_blank" class="github"><i class="fab fa-medium fa-lg"></i></a></li>
       </ul>
 
     </div>
   </div>
-
 </div>
