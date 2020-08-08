@@ -1,11 +1,45 @@
+ *{
+ 	padding: 0;
+ 	margin: 0;
+ }
  .stack {
-     color: darkgrey; 
+ 	color: darkgrey; 
  }
  .stack:hover {
-     color: black;
+ 	color: black;
  }
-.photo{
-    width: 64px; 
-    height: 64px;
-    margin: 5px;
-}
+ .photo{
+ 	width: 64px; 
+ 	height: 64px;
+ 	margin: 5px;
+ }
+ hr{
+ 	border-top: 2px solid red !important;
+ 	
+ }
+
+ @media (min-width: 576px) {  
+ 	.card-columns {
+ 		-webkit-column-count: 2 !important;
+ 		-moz-column-count: 2 !important;
+ 		column-count: 2 !important;
+ 		-webkit-column-gap: 1.25rem;
+ 		-moz-column-gap: 1.25rem;
+ 		column-gap: 1.25rem;
+ 		orphans: 1;
+ 		widows: 1;
+ 	}
+ }
+ 
+ @media  (max-width: 576px) {
+ 	.card-columns {
+ 		-webkit-column-count: 1 !important;
+ 		-moz-column-count: 1 !important;
+ 		column-count: 1 !important;
+ 		-webkit-column-gap: 1.25rem;
+ 		-moz-column-gap: 1.25rem;
+ 		column-gap: 1.25rem;
+ 		orphans: 1;
+ 		widows: 1;
+ 	}
+ }
