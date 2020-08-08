@@ -1,58 +1,52 @@
-
+ 
 <div class="ml-5 mr-5 mt-5">
-  <div class="row">
+ <div class="row">
 
-    <?php include 'left.php'; ?>
+  <?php include 'left.php'; ?>
+  <div class="col-md-6 mt-4">
+    <hr>
+    <div class="card-columns">
 
-    <div class="col-md-6 mt-5">
       <?php 
-      $yazilarim=$db->prepare("SELECT * FROM yazilarim ORDER BY id DESC");   /*order by kısmı en son eklenenden başlayarak yazdırılmasını sağlıyor*/
-      $yazilarim->execute();
-      $yazicek=$yazilarim->fetchALL(PDO::FETCH_ASSOC);
 
-      foreach ($yazicek as $row) {
-        ?>
-        <div class="card mb-3" >
-          <img src="<?php echo $row["yazi_link"]; ?>" class="card-img-top img-thumbnail" alt="...">
-          <div class="card-body">
-            <h5 class="card-title"> <?php echo $row["yazi_adi"]; ?></h5>
-            <p class="card-text">
-              <?php 
-              $secim= $row["yazi_aciklama"]; 
-              echo substr($secim, 0,280);  
-              ?>...
-            </p>
-            <a class="blog-title-link" href="yazi.php?id=<?php echo $row["id"]; ?>"><button class="btn btn-primary">Daha Fazla Oku</button></a>
-          </div>
-          <div class="card-footer text-muted">
-            <div class="float-right"> <?php echo date($row["yazi_tarih"]) ; ?></div>
-          </div>
-        </div>
+      $blog=$VT->VeriGetir("bloglar","WHERE durum=?",array(1),"ORDER BY ID DESC");
+      if ($blog!=false) {
 
-        <?php
+        for ($i=0; $i < count($blog) ; $i++) { 
+          ?>
+          <div class="card mx-1 mb-3">
+            <?php 
+            if (!empty($blog[$i]["resim"])){
+              ?>
+              <img src="images/bloglar/<?=$blog[$i]["resim"]?>" class="card-img-top" alt="...">
+              <?php
+            }
+            ?>
+            <div class="card-body">
+              <h5 class="card-title"><b><?=$blog[$i]["baslik"]?></b> </h5>
+              <p class="card-text">
+                <?php 
+                $secim=stripslashes($blog[$i]["description"]);
+                echo substr($secim, 0,150);  
+                ?>...
+              </p>
+              <a class="btn btn-primary blog-title-link" href="yazi.php?ID=<?=$blog[$i]["ID"]?>"> Daha Fazla Oku</a>
+              <p class="card-text"><small class="text-muted">
+                <?php 
+                $tarih=$blog[$i]["tarih"];
+                $tarih = date('d.m.Y  H:i', strtotime($tarih)); 
+                echo $tarih;
+                ?>
+              </small></p>
+            </div>
+          </div>
+          <?php
+        }
       }
       ?>
-
-      <nav class="Page navigation example">
-        <ul class="pagination" style="margin-left: 250px;">
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
     </div>
-
-    <?php include 'sag.php'; ?>
-
+    <hr>
   </div>
+  <?php include 'sag.php'; ?>
+</div>
 </div>
