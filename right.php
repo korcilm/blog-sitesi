@@ -23,7 +23,7 @@
             }
             ?>
             <div class="card-body">
-              <h5 class="card-title"><b><?=$blog[$i]["baslik"]?></b> </h5>
+              <h3 class="card-title"><b><?=$blog[$i]["baslik"]?></b> </h3>
               <p class="card-text">
                 <?php 
                 $secim=stripslashes($blog[$i]["description"]);
