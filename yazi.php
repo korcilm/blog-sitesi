@@ -54,12 +54,6 @@ if (@$_GET["yorum-ekle"]=="bos") {
 					</div>
 					<?php
 				}
-				else{
-					?>
-					<div class="card-header">
-					</div>
-					<?php
-				}
 				?>
 				<div class="card-body">
 					<h3 class="card-title"><b><?=$blog[0]["baslik"]?></b></h3>
