@@ -62,7 +62,7 @@ if (@$_GET["yorum-ekle"]=="bos") {
 				}
 				?>
 				<div class="card-body">
-					<h5 class="card-title"><?=$blog[0]["baslik"]?></h5>
+					<h3 class="card-title"><b><?=$blog[0]["baslik"]?></b></h3>
 					<p class="card-text">
 						<?php
 						$metin=stripslashes($blog[0]["metin"]);
@@ -151,14 +151,12 @@ if (@$_GET["yorum-ekle"]=="bos") {
 					</ul>
 
 					<?php 
-
 				}
 			}
 			?>
 			<hr>
 		</div>
 		
-
 		<?php include 'sag.php'; ?>
 	</div>
 </div>
